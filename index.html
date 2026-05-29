@@ -1,4 +1,91 @@
-<!DOCTYPE html><html><head><title>Monico Agent</title></head><body><h1>Monico Agent</h1><p>Local Installation</p><h2>Mac</h2><pre>pip install -r requirements.txt
-uvicorn app:app --reload</pre><h2>Linux</h2><pre>pip install -r requirements.txt
-uvicorn app:app --reload</pre><h2>Windows</h2><pre>pip install -r requirements.txt
-uvicorn app:app --reload</pre><h2>Integrations</h2><ul><li>Telegram: python agent.py --telegram</li><li>Slack: python agent.py --slack</li><li>SMS: python agent.py --sms</li></ul></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monico Agent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .heading { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100">
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-12">
+            <div>
+                <h1 class="heading text-5xl font-semibold tracking-tight">Monico Agent</h1>
+                <p class="text-emerald-400 mt-1">Local AI Agent Platform</p>
+            </div>
+        </div>
+
+        <div class="bg-zinc-900 rounded-3xl p-8 mb-10 border border-zinc-800">
+            <h2 class="text-3xl font-semibold mb-6">Run Locally</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Mac -->
+                <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-6">
+                    <div class="text-xl font-medium mb-4">Mac</div>
+                    <pre class="bg-black text-emerald-300 p-5 rounded-xl text-sm overflow-auto font-mono">pip install -r requirements.txt
+uvicorn app:app --reload</pre>
+                </div>
+
+                <!-- Linux -->
+                <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-6">
+                    <div class="text-xl font-medium mb-4">Linux</div>
+                    <pre class="bg-black text-emerald-300 p-5 rounded-xl text-sm overflow-auto font-mono">pip install -r requirements.txt
+uvicorn app:app --reload</pre>
+                </div>
+
+                <!-- Windows -->
+                <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-6">
+                    <div class="text-xl font-medium mb-4">Windows</div>
+                    <pre class="bg-black text-emerald-300 p-5 rounded-xl text-sm overflow-auto font-mono">pip install -r requirements.txt
+uvicorn app:app --reload</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Integrations -->
+        <div class="bg-zinc-900 rounded-3xl p-8 border border-zinc-800">
+            <h2 class="text-3xl font-semibold mb-6">Integrations</h2>
+            <div class="space-y-6">
+                <div class="flex justify-between items-center bg-zinc-950 p-5 rounded-2xl">
+                    <div>
+                        <div class="font-medium">Telegram Bot</div>
+                        <div class="text-zinc-400 text-sm">Run as Telegram bot</div>
+                    </div>
+                    <code class="bg-black px-4 py-2 rounded-xl text-emerald-400 font-mono text-sm">python agent.py --telegram</code>
+                </div>
+
+                <div class="flex justify-between items-center bg-zinc-950 p-5 rounded-2xl">
+                    <div>
+                        <div class="font-medium">Slack</div>
+                        <div class="text-zinc-400 text-sm">Connect to Slack workspace</div>
+                    </div>
+                    <code class="bg-black px-4 py-2 rounded-xl text-emerald-400 font-mono text-sm">python agent.py --slack</code>
+                </div>
+
+                <div class="flex justify-between items-center bg-zinc-950 p-5 rounded-2xl">
+                    <div>
+                        <div class="font-medium">SMS</div>
+                        <div class="text-zinc-400 text-sm">Via Twilio</div>
+                    </div>
+                    <code class="bg-black px-4 py-2 rounded-xl text-emerald-400 font-mono text-sm">python agent.py --sms</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center text-zinc-500 text-sm mt-12">
+            Live at <a href="https://monico-agent.vercel.app" class="text-emerald-400 hover:underline">monico-agent.vercel.app</a>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind script already loaded
+        document.documentElement.classList.add('dark');
+    </script>
+</body>
+</html>
