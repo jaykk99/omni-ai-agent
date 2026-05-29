@@ -101,6 +101,7 @@
                         <span class="text-[11px] font-bold text-white block">SMS Gateway</span>
                     </button>
                 </div>
+                <p class="text-[10px] text-zinc-500 mt-4">Downloads connect directly to the Monico Agent repo</p>
             </div>
         </section>
 
@@ -150,25 +151,51 @@
 
     <!-- Modal -->
     <div id="deploy-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md hidden">
-        <div class="w-full max-w-lg bg-zinc-950 border border-zinc-800 rounded-lg p-8 text-center">
-            <h2 class="text-sm font-bold text-white uppercase mb-4" id="modal-title">Initialize Deployment</h2>
-            <div id="modal-tab-content" class="text-zinc-400 text-xs mb-6"></div>
-            <button onclick="closeDeployModal()" class="px-6 py-2 bg-red-600 text-white text-xs font-bold uppercase rounded">Close</button>
+        <div class="w-full max-w-lg bg-zinc-950 border border-zinc-800 rounded-lg p-8">
+            <h2 class="text-sm font-bold text-white uppercase mb-4 text-center" id="modal-title">Download Package</h2>
+            <div id="modal-tab-content" class="text-zinc-400 text-xs mb-6 text-center"></div>
+            
+            <div class="flex flex-col gap-3 mt-4">
+                <a id="download-btn" href="#" download class="px-6 py-3 bg-red-600 hover:bg-red-700 text-white text-xs font-bold uppercase rounded text-center transition-colors">Download Manifest from Repo</a>
+                <a href="https://github.com/jaykk99/monico-agent/archive/refs/heads/main.zip" class="px-6 py-2 border border-zinc-700 hover:bg-zinc-900 text-white text-xs font-bold uppercase rounded text-center transition-colors">Download Full Repo (ZIP)</a>
+            </div>
+            
+            <button onclick="closeDeployModal()" class="mt-6 w-full px-6 py-2 bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold uppercase rounded">Close</button>
         </div>
     </div>
 
     <script>
         const modal = document.getElementById('deploy-modal');
+        let currentType = '';
+        
         function openDeployModal(type) {
-            document.getElementById('modal-tab-content').textContent = `Initiating manifest download for ${type.toUpperCase()} node...`;
+            currentType = type;
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-tab-content');
+            const downloadBtn = document.getElementById('download-btn');
+            
+            title.textContent = `${type.toUpperCase()} Package`;
+            
+            let fileName = '';
+            if (type === 'slack') fileName = 'slack-package.txt';
+            else if (type === 'telegram') fileName = 'telegram-gateway.txt';
+            else if (type === 'sms') fileName = 'sms-gateway.txt';
+            
+            const rawUrl = `https://raw.githubusercontent.com/jaykk99/monico-agent/main/${fileName}`;
+            
+            content.innerHTML = `Direct download from Monico Agent GitHub repo.<br>Setup instructions and config included.`;
+            
+            downloadBtn.href = rawUrl;
+            downloadBtn.download = fileName;
+            
             modal.classList.remove('hidden');
         }
+        
         function closeDeployModal() {
             modal.classList.add('hidden');
         }
-
-        // Bonus: Simple chat integration (can be expanded)
-        console.log('%c[Monico] UI loaded with Agent backend ready', 'color:#ef4444');
+        
+        console.log('%c[Monico] UI loaded with repo-connected downloads', 'color:#ef4444');
     </script>
 </body>
 </html>
