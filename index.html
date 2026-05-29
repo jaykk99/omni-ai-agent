@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>monico.ai | Autonomous Agent Operator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;700;800&family=Space+Grotesk:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #030303;
+        }
+        
+        .sans-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(239, 68, 68, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(239, 68, 68, 0.03) 1px, transparent 1px);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030303;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ef4444;
+        }
+    </style>
+</head>
+<body class="text-zinc-300 min-h-screen selection:bg-red-600 selection:text-white relative overflow-x-hidden">
+
+    <div class="absolute top-0 left-0 w-full h-[600px] bg-grid pointer-events-none"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-red-950/10 blur-[140px] rounded-full pointer-events-none"></div>
+
+    <header class="border-b border-zinc-900 bg-[#060606]/95 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 group">
+                <div class="relative">
+                    <div class="w-4 h-4 bg-red-600 rounded-sm transform rotate-45 group-hover:rotate-180 transition-all duration-700"></div>
+                </div>
+                <span class="text-2xl font-black tracking-tighter text-white uppercase sans-font">
+                    monico<span class="text-red-500">.ai</span>
+                </span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 text-xs uppercase tracking-widest text-zinc-400 font-medium">
+                <a href="#features" class="hover:text-red-500 transition-colors py-2">// SYSTEM.CORE</a>
+                <a href="#models" class="hover:text-red-500 transition-colors py-2">// ENGINE.MATRIX</a>
+            </nav>
+
+            <div class="flex items-center">
+                <span class="inline-flex items-center space-x-2 text-[10px] text-zinc-500 uppercase tracking-widest border border-zinc-800 px-3 py-1.5 rounded bg-zinc-950">
+                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                    <span>v1.0.0-PROD</span>
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+        <section id="control-anchor" class="max-w-4xl mx-auto px-6 pt-16 lg:pt-28 pb-16 text-center flex flex-col items-center">
+            <div class="inline-flex items-center space-x-2 bg-red-950/30 border border-red-800/40 px-3.5 py-1.5 rounded text-xs text-red-400 mb-6 animate-pulse">
+                <span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+                <span class="font-semibold uppercase tracking-wider">ACTIVE AGENT SYSTEM LAYER</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 uppercase sans-font leading-[0.95]">
+                AUTONOMOUS<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-600 to-zinc-200">
+                    OPERATOR AGENT
+                </span>
+            </h1>
+
+            <p class="text-zinc-400 text-sm sm:text-base max-w-xl mb-12 leading-relaxed font-light">
+                Monico is an autonomous mind built to execute native environment compilation, utilize global-grade foundational engines, and assume full human-level digital system permissions to achieve long-horizon technical targets.
+            </p>
+
+            <div id="downloads" class="bg-zinc-950/80 border border-zinc-800/80 rounded-lg p-8 w-full max-w-2xl shadow-2xl relative">
+                <p class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold mb-6">// SELECT DEPLOYMENT TARGET</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <button onclick="openDeployModal('slack')" class="p-4 bg-zinc-900/60 border border-zinc-800 hover:border-red-600/50 rounded transition-all">
+                        <span class="text-[11px] font-bold text-white block">Slack Package</span>
+                    </button>
+                    <button onclick="openDeployModal('telegram')" class="p-4 bg-zinc-900/60 border border-zinc-800 hover:border-red-600/50 rounded transition-all">
+                        <span class="text-[11px] font-bold text-white block">Telegram Gateway</span>
+                    </button>
+                    <button onclick="openDeployModal('sms')" class="p-4 bg-zinc-900/60 border border-zinc-800 hover:border-red-600/50 rounded transition-all">
+                        <span class="text-[11px] font-bold text-white block">SMS Gateway</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 border-t border-zinc-900 bg-[#060606]">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-zinc-950 border border-zinc-900 p-8 rounded-lg">
+                    <h3 class="text-xl font-bold text-white uppercase mb-4">Live Execution</h3>
+                    <p class="text-zinc-400 text-sm font-light">Spin up dynamic, isolated environments to run and test code at scale.</p>
+                </div>
+                <div class="bg-zinc-950 border border-zinc-900 p-8 rounded-lg">
+                    <h3 class="text-xl font-bold text-white uppercase mb-4">Human Access</h3>
+                    <p class="text-zinc-400 text-sm font-light">Interface directly with platforms as an authorized system operator.</p>
+                </div>
+                <div class="bg-zinc-950 border border-zinc-900 p-8 rounded-lg">
+                    <h3 class="text-xl font-bold text-white uppercase mb-4">Persistent Runtime</h3>
+                    <p class="text-zinc-400 text-sm font-light">Tasks run continuously for days, coordinating complex cross-environment workflows.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engine Matrix -->
+        <section id="models" class="py-20 border-t border-zinc-900 bg-[#060606]">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-3xl font-extrabold text-white uppercase mb-12 text-center">Engine Matrix</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-zinc-950 border border-zinc-900 p-6 rounded-lg">
+                        <h3 class="text-white font-bold mb-2">Gemini Flash 3</h3>
+                        <p class="text-xs text-zinc-500">Ultra-low latency and massive contextual frame window processing.</p>
+                    </div>
+                    <div class="bg-zinc-950 border border-zinc-900 p-6 rounded-lg">
+                        <h3 class="text-white font-bold mb-2">GPT-5</h3>
+                        <p class="text-xs text-zinc-500">Adaptive planning and structural logic architecture creation.</p>
+                    </div>
+                    <div class="bg-zinc-950 border border-zinc-900 p-6 rounded-lg">
+                        <h3 class="text-white font-bold mb-2">Kimi 2.6</h3>
+                        <p class="text-xs text-zinc-500">Perfected logic layer for continuous execution and syntax analysis.</p>
+                    </div>
+                    <div class="bg-zinc-950 border border-red-900/50 p-6 rounded-lg">
+                        <h3 class="text-red-500 font-bold mb-2">monico-1.0</h3>
+                        <p class="text-xs text-zinc-500">Proprietary core tuned for cybersecurity telemetry and dynamic logic.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="deploy-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md hidden">
+        <div class="w-full max-w-lg bg-zinc-950 border border-zinc-800 rounded-lg p-8 text-center">
+            <h2 class="text-sm font-bold text-white uppercase mb-4" id="modal-title">Initialize Deployment</h2>
+            <div id="modal-tab-content" class="text-zinc-400 text-xs mb-6"></div>
+            <button onclick="closeDeployModal()" class="px-6 py-2 bg-red-600 text-white text-xs font-bold uppercase rounded">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('deploy-modal');
+        function openDeployModal(type) {
+            document.getElementById('modal-tab-content').textContent = `Initiating manifest download for ${type.toUpperCase()} node...`;
+            modal.classList.remove('hidden');
+        }
+        function closeDeployModal() {
+            modal.classList.add('hidden');
+        }
+
+        // Bonus: Simple chat integration (can be expanded)
+        console.log('%c[Monico] UI loaded with Agent backend ready', 'color:#ef4444');
+    </script>
+</body>
+</html>
