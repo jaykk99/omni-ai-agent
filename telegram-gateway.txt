@@ -1,0 +1,12 @@
+Monico Agent - Telegram Gateway
+
+Repo: https://github.com/jaykk99/monico-agent
+
+Setup:
+1. Add your TELEGRAM_TOKEN to environment variables
+2. The agent uses python-telegram-bot to receive and respond
+3. Message your bot to run commands like terminal, search, integrations
+
+Full code in messaging/telegram_handler.py
+
+Download full repo: https://github.com/jaykk99/monico-agent/archive/refs/heads/main.zip
