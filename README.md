@@ -4,27 +4,44 @@
 
 ✅ **Live site:** [https://monico-agent.vercel.app](https://monico-agent.vercel.app)
 
-**Hierarchical Autonomous AI Agent Platform** with **Safe** and **Uncensored** editions.
+**Hierarchical Autonomous AI Agent Platform**
 
-## Editions
+## Local Installation
 
-### Monico Safe (Default / Free)
-- Sandboxed Docker execution (zero blast radius)
-- Moderated models
+### Mac
+```bash
+git clone https://github.com/jaykk99/monico-agent.git
+cd monico-agent
+pip install -r requirements.txt
+uvicorn backend.main:app --reload
+```
 
-### Monico Uncensored (Paid)
-- Non-sandboxed, full power
-- Hugging Face uncensored models
-- Set `MONICO_TIER=paid` in environment
+### Linux
+```bash
+git clone https://github.com/jaykk99/monico-agent.git
+cd monico-agent
+pip install -r requirements.txt
+uvicorn backend.main:app --reload
+```
 
-## Quick Start (No Stripe needed)
+### Windows
+```bash
+git clone https://github.com/jaykk99/monico-agent.git
+cd monico-agent
+pip install -r requirements.txt
+uvicorn backend.main:app --reload
+```
 
-1. Set env var: `MONICO_TIER=paid` (or leave as free)
-2. `pip install -r requirements.txt`
-3. `uvicorn backend.main:app --reload`
+## Integrations
+- **Telegram**: `python -m monico --telegram`
+- **Slack**: `python -m monico --slack`
+- **SMS (Twilio)**: `python -m monico --sms`
+
+## Quick Start
+1. `pip install -r requirements.txt`
+2. `uvicorn backend.main:app --reload`
 
 ## API
-
 **POST /run**
 ```json
 {
