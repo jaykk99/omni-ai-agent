@@ -1,5 +1,9 @@
 # Monico Agent
 
+⚠️ **The old site (Omni bot / previous Vercel deployment) is broken** and returns 404.
+
+**New live site:** [Monico Agent](https://monico-agent.vercel.app)
+
 **Hierarchical Autonomous AI Agent Platform** with **Safe** and **Uncensored** editions.
 
 ## Editions
@@ -28,4 +32,3 @@
   "user_id": "test_user"
 }
 ```
-
