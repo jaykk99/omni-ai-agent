@@ -4,34 +4,28 @@
 
 ## Editions
 
-### 1. Monico Safe (Free/Default)
-- Sandboxed execution
-- Moderated models (Groq, OpenAI, etc.)
-- Zero blast radius
+### Monico Safe (Default / Free)
+- Sandboxed Docker execution (zero blast radius)
+- Moderated models
 
-### 2. Monico Uncensored (Paid)
-- Non-sandboxed high-power mode
+### Monico Uncensored (Paid)
+- Non-sandboxed, full power
 - Hugging Face uncensored models
-- Full system access (user responsibility)
+- Set `MONICO_TIER=paid` in environment
 
-## Core Architecture
-- Master-Worker pattern
-- Observe → Think → Act → Evaluate cycle
-- LiteLLM model registry
+## Quick Start (No Stripe needed)
 
-## Quick Start
-```bash
-pip install -r requirements.txt
-uvicorn backend.main:app --reload
-```
+1. Set env var: `MONICO_TIER=paid` (or leave as free)
+2. `pip install -r requirements.txt`
+3. `uvicorn backend.main:app --reload`
 
 ## API
-POST /run
 
+**POST /run**
 ```json
 {
-  "input": "Your request here",
-  "user_id": "user123"
+  "input": "Hello, research something for me",
+  "user_id": "test_user"
 }
 ```
 
