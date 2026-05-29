@@ -1,0 +1,12 @@
+Monico Agent - SMS Gateway
+
+Repo: https://github.com/jaykk99/monico-agent
+
+Setup:
+1. Add your TWILIO_TOKEN and TWILIO_PHONE_NUMBER to environment variables
+2. The agent can send/receive SMS via Twilio
+3. Use for alerts, commands via text
+
+Full code in messaging/twilio_handler.py
+
+Download full repo: https://github.com/jaykk99/monico-agent/archive/refs/heads/main.zip
