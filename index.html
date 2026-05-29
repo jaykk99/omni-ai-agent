@@ -74,7 +74,7 @@
         <section id="control-anchor" class="max-w-4xl mx-auto px-6 pt-16 lg:pt-28 pb-16 text-center flex flex-col items-center">
             <div class="inline-flex items-center space-x-2 bg-red-950/30 border border-red-800/40 px-3.5 py-1.5 rounded text-xs text-red-400 mb-6 animate-pulse">
                 <span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
-                <span class="font-semibold uppercase tracking-wider">ACTIVE AGENT SYSTEM LAYER</span>
+                <span class="font-semibold uppercase tracking-wider">CLOUD AGENT SYSTEM</span>
             </div>
 
             <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 uppercase sans-font leading-[0.95]">
@@ -84,24 +84,34 @@
                 </span>
             </h1>
 
-            <p class="text-zinc-400 text-sm sm:text-base max-w-xl mb-12 leading-relaxed font-light">
+            <p class="text-zinc-400 text-sm sm:text-base max-w-xl mb-8 leading-relaxed font-light">
                 Monico is an autonomous mind built to execute native environment compilation, utilize global-grade foundational engines, and assume full human-level digital system permissions to achieve long-horizon technical targets.
             </p>
 
+            <!-- Cloud Launch Button -->
+            <a href="https://monico-agent-o52w.vercel.app" target="_blank" 
+               class="inline-flex items-center justify-center px-12 py-5 bg-red-600 hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest rounded-xl shadow-2xl transition-all mb-12">
+                LAUNCH MONICO IN THE CLOUD
+            </a>
+
+            <div class="text-xs text-zinc-500 mb-12">No download needed • Runs entirely in the cloud • Connect your Slack, Telegram or SMS instantly</div>
+
             <div id="downloads" class="bg-zinc-950/80 border border-zinc-800/80 rounded-lg p-8 w-full max-w-2xl shadow-2xl relative">
-                <p class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold mb-6">// SELECT DEPLOYMENT TARGET</p>
+                <p class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold mb-6">// CONNECT YOUR CHANNELS (CLOUD)</p>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <button onclick="openDeployModal('slack')" class="p-4 bg-zinc-900/60 border border-zinc-800 hover:border-red-600/50 rounded transition-all">
-                        <span class="text-[11px] font-bold text-white block">Slack Package</span>
+                    <button onclick="openDeployModal('slack')" class="p-4 bg-zinc-900/60 border border-zinc-800 hover:border-red-600/50 rounded transition-all text-left">
+                        <span class="text-[11px] font-bold text-white block">Slack</span>
+                        <span class="text-[10px] text-zinc-500">Add Monico to your workspace</span>
                     </button>
-                    <button onclick="openDeployModal('telegram')" class="p-4 bg-zinc-900/60 border border-zinc-800 hover:border-red-600/50 rounded transition-all">
-                        <span class="text-[11px] font-bold text-white block">Telegram Gateway</span>
+                    <button onclick="openDeployModal('telegram')" class="p-4 bg-zinc-900/60 border border-zinc-800 hover:border-red-600/50 rounded transition-all text-left">
+                        <span class="text-[11px] font-bold text-white block">Telegram</span>
+                        <span class="text-[10px] text-zinc-500">Connect Telegram bot</span>
                     </button>
-                    <button onclick="openDeployModal('sms')" class="p-4 bg-zinc-900/60 border border-zinc-800 hover:border-red-600/50 rounded transition-all">
-                        <span class="text-[11px] font-bold text-white block">SMS Gateway</span>
+                    <button onclick="openDeployModal('sms')" class="p-4 bg-zinc-900/60 border border-zinc-800 hover:border-red-600/50 rounded transition-all text-left">
+                        <span class="text-[11px] font-bold text-white block">SMS / Twilio</span>
+                        <span class="text-[10px] text-zinc-500">Text message control</span>
                     </button>
                 </div>
-                <p class="text-[10px] text-zinc-500 mt-4">Downloads connect directly to the Monico Agent repo</p>
             </div>
         </section>
 
@@ -142,7 +152,7 @@
                     </div>
                     <div class="bg-zinc-950 border border-red-900/50 p-6 rounded-lg">
                         <h3 class="text-red-500 font-bold mb-2">monico-1.0</h3>
-                        <p class="text-xs text-zinc-500">Proprietary core tuned for cybersecurity telemetry and dynamic logic.</p>
+                        <p class="text-xs text-zinc-500">Proprietary core • <span class="text-red-400">Coming Soon</span></p>
                     </div>
                 </div>
             </div>
@@ -151,51 +161,40 @@
 
     <!-- Modal -->
     <div id="deploy-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md hidden">
-        <div class="w-full max-w-lg bg-zinc-950 border border-zinc-800 rounded-lg p-8">
-            <h2 class="text-sm font-bold text-white uppercase mb-4 text-center" id="modal-title">Download Package</h2>
-            <div id="modal-tab-content" class="text-zinc-400 text-xs mb-6 text-center"></div>
-            
-            <div class="flex flex-col gap-3 mt-4">
-                <a id="download-btn" href="#" download class="px-6 py-3 bg-red-600 hover:bg-red-700 text-white text-xs font-bold uppercase rounded text-center transition-colors">Download Manifest from Repo</a>
-                <a href="https://github.com/jaykk99/monico-agent/archive/refs/heads/main.zip" class="px-6 py-2 border border-zinc-700 hover:bg-zinc-900 text-white text-xs font-bold uppercase rounded text-center transition-colors">Download Full Repo (ZIP)</a>
-            </div>
-            
+        <div class="w-full max-w-lg bg-zinc-950 border border-zinc-800 rounded-lg p-8 text-center">
+            <h2 class="text-sm font-bold text-white uppercase mb-4" id="modal-title">Connect Channel</h2>
+            <div id="modal-content" class="text-zinc-400 text-sm mb-6"></div>
+            <a id="modal-action" href="https://monico-agent-o52w.vercel.app" target="_blank" class="block w-full px-8 py-3 bg-red-600 hover:bg-red-700 text-white text-xs font-bold uppercase rounded">Open Monico Cloud</a>
             <button onclick="closeDeployModal()" class="mt-6 w-full px-6 py-2 bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold uppercase rounded">Close</button>
         </div>
     </div>
 
     <script>
         const modal = document.getElementById('deploy-modal');
-        let currentType = '';
-        
         function openDeployModal(type) {
-            currentType = type;
             const title = document.getElementById('modal-title');
-            const content = document.getElementById('modal-tab-content');
-            const downloadBtn = document.getElementById('download-btn');
+            const content = document.getElementById('modal-content');
+            const action = document.getElementById('modal-action');
             
-            title.textContent = `${type.toUpperCase()} Package`;
-            
-            let fileName = '';
-            if (type === 'slack') fileName = 'slack-package.txt';
-            else if (type === 'telegram') fileName = 'telegram-gateway.txt';
-            else if (type === 'sms') fileName = 'sms-gateway.txt';
-            
-            const rawUrl = `https://raw.githubusercontent.com/jaykk99/monico-agent/main/${fileName}`;
-            
-            content.innerHTML = `Direct download from Monico Agent GitHub repo.<br>Setup instructions and config included.`;
-            
-            downloadBtn.href = rawUrl;
-            downloadBtn.download = fileName;
+            if (type === 'slack') {
+                title.textContent = 'ADD TO SLACK WORKSPACE';
+                content.innerHTML = `Click below to open Monico in the cloud and connect your Slack workspace.`;
+            } else if (type === 'telegram') {
+                title.textContent = 'CONNECT TELEGRAM';
+                content.innerHTML = `Open Monico Cloud to connect your Telegram bot.`;
+            } else if (type === 'sms') {
+                title.textContent = 'CONNECT SMS';
+                content.innerHTML = `Open Monico Cloud to set up Twilio SMS.`;
+            }
             
             modal.classList.remove('hidden');
         }
-        
         function closeDeployModal() {
             modal.classList.add('hidden');
         }
-        
-        console.log('%c[Monico] UI loaded with repo-connected downloads', 'color:#ef4444');
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeDeployModal();
+        });
     </script>
 </body>
 </html>
